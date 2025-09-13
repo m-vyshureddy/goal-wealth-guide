@@ -50,13 +50,15 @@ const Dashboard = () => {
 
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300">
+          <Card className="gradient-border-primary bg-gradient-card hover:glow-primary transition-all duration-500 transform hover:scale-105">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
-              <Wallet className="h-4 w-4 text-primary" />
+              <div className="p-2 rounded-full bg-gradient-primary">
+                <Wallet className="h-4 w-4 text-primary-foreground" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-primary">$3,247.89</div>
+              <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">$3,247.89</div>
               <p className="text-xs text-success flex items-center">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 +5.2% from last month
@@ -64,13 +66,15 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300">
+          <Card className="gradient-border-purple bg-gradient-card hover:glow-purple transition-all duration-500 transform hover:scale-105">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Monthly Spending</CardTitle>
-              <CreditCard className="h-4 w-4 text-warning" />
+              <div className="p-2 rounded-full bg-gradient-orange">
+                <CreditCard className="h-4 w-4 text-orange-foreground" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-warning">$1,327.45</div>
+              <div className="text-2xl font-bold bg-gradient-orange bg-clip-text text-transparent">$1,327.45</div>
               <p className="text-xs text-destructive flex items-center">
                 <TrendingDown className="w-3 h-3 mr-1" />
                 +12% from budget
@@ -78,13 +82,15 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300">
+          <Card className="animated-border bg-gradient-card hover:glow-rainbow transition-all duration-500 transform hover:scale-105">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Savings Goal</CardTitle>
-              <PiggyBank className="h-4 w-4 text-success" />
+              <div className="p-2 rounded-full bg-gradient-success">
+                <PiggyBank className="h-4 w-4 text-success-foreground" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-success">$3,650</div>
+              <div className="text-2xl font-bold bg-gradient-success bg-clip-text text-transparent">$3,650</div>
               <p className="text-xs text-success flex items-center">
                 <Target className="w-3 h-3 mr-1" />
                 73% of $5,000 goal
@@ -92,13 +98,15 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-card border-primary/20 shadow-card hover:shadow-glow transition-all duration-300">
+          <Card className="gradient-border bg-gradient-card hover:glow-teal pulse-border transition-all duration-500 transform hover:scale-105">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Budget Alert</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-destructive" />
+              <div className="p-2 rounded-full bg-gradient-pink animate-pulse">
+                <AlertTriangle className="h-4 w-4 text-pink-foreground" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-destructive">3</div>
+              <div className="text-2xl font-bold bg-gradient-pink bg-clip-text text-transparent">3</div>
               <p className="text-xs text-muted-foreground">Categories over budget</p>
             </CardContent>
           </Card>
@@ -106,19 +114,19 @@ const Dashboard = () => {
 
         {/* Main Content */}
         <Tabs defaultValue="analytics" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-secondary/50">
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="expenses">Expenses</TabsTrigger>
-            <TabsTrigger value="goals">Goals</TabsTrigger>
-            <TabsTrigger value="budget">Budget</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-gradient-card border gradient-border-primary glow-primary">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-gradient-primary data-[state=active]:text-primary-foreground">Analytics</TabsTrigger>
+            <TabsTrigger value="expenses" className="data-[state=active]:bg-gradient-purple data-[state=active]:text-purple-foreground">Expenses</TabsTrigger>
+            <TabsTrigger value="goals" className="data-[state=active]:bg-gradient-success data-[state=active]:text-success-foreground">Goals</TabsTrigger>
+            <TabsTrigger value="budget" className="data-[state=active]:bg-gradient-orange data-[state=active]:text-orange-foreground">Budget</TabsTrigger>
           </TabsList>
 
           <TabsContent value="analytics" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Spending Trends */}
-              <Card className="bg-gradient-card border-primary/20 shadow-card">
+              <Card className="gradient-border-primary bg-gradient-card hover:glow-primary transition-all duration-500">
                 <CardHeader>
-                  <CardTitle>Spending Trends & Predictions</CardTitle>
+                  <CardTitle className="bg-gradient-primary bg-clip-text text-transparent">Spending Trends & Predictions</CardTitle>
                   <CardDescription>AI-powered spending analysis and forecasting</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -154,9 +162,9 @@ const Dashboard = () => {
               </Card>
 
               {/* Expense Breakdown */}
-              <Card className="bg-gradient-card border-primary/20 shadow-card">
+              <Card className="gradient-border-purple bg-gradient-card hover:glow-purple transition-all duration-500">
                 <CardHeader>
-                  <CardTitle>Expense Categories</CardTitle>
+                  <CardTitle className="bg-gradient-purple bg-clip-text text-transparent">Expense Categories</CardTitle>
                   <CardDescription>Breakdown of current month spending</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -195,37 +203,44 @@ const Dashboard = () => {
 
           <TabsContent value="goals" className="space-y-6">
             <div className="grid gap-6">
-              {goals.map((goal, index) => (
-                <Card key={index} className="bg-gradient-card border-primary/20 shadow-card">
-                  <CardHeader>
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <CardTitle className="text-lg">{goal.name}</CardTitle>
-                        <CardDescription>
-                          ${goal.current.toLocaleString()} of ${goal.target.toLocaleString()}
-                        </CardDescription>
+              {goals.map((goal, index) => {
+                const borderClasses = [
+                  "gradient-border-success hover:glow-rainbow",
+                  "gradient-border-purple hover:glow-purple", 
+                  "animated-border hover:glow-pink"
+                ];
+                return (
+                  <Card key={index} className={`${borderClasses[index % borderClasses.length]} bg-gradient-card transition-all duration-500 transform hover:scale-102`}>
+                    <CardHeader>
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <CardTitle className="text-lg bg-gradient-success bg-clip-text text-transparent">{goal.name}</CardTitle>
+                          <CardDescription>
+                            ${goal.current.toLocaleString()} of ${goal.target.toLocaleString()}
+                          </CardDescription>
+                        </div>
+                        <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
+                          {goal.progress}%
+                        </Badge>
                       </div>
-                      <Badge variant="secondary" className="bg-primary/20 text-primary">
-                        {goal.progress}%
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <Progress value={goal.progress} className="h-2" />
-                    <div className="flex justify-between text-sm text-muted-foreground mt-2">
-                      <span>${(goal.target - goal.current).toLocaleString()} remaining</span>
-                      <span>Target: ${goal.target.toLocaleString()}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardHeader>
+                    <CardContent>
+                      <Progress value={goal.progress} className="h-3" />
+                      <div className="flex justify-between text-sm text-muted-foreground mt-2">
+                        <span>${(goal.target - goal.current).toLocaleString()} remaining</span>
+                        <span>Target: ${goal.target.toLocaleString()}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </TabsContent>
 
           <TabsContent value="expenses">
-            <Card className="bg-gradient-card border-primary/20 shadow-card">
+            <Card className="gradient-border bg-gradient-card hover:glow-teal transition-all duration-500">
               <CardHeader>
-                <CardTitle>Recent Transactions</CardTitle>
+                <CardTitle className="bg-gradient-teal bg-clip-text text-transparent">Recent Transactions</CardTitle>
                 <CardDescription>Automated expense tracking and categorization</CardDescription>
               </CardHeader>
               <CardContent>
@@ -236,28 +251,33 @@ const Dashboard = () => {
                     { name: "Netflix Subscription", amount: -15.99, category: "Entertainment", date: "2 days ago", automated: true },
                     { name: "Part-time Job", amount: 250.00, category: "Income", date: "3 days ago", automated: false },
                     { name: "Grocery Store", amount: -67.43, category: "Food & Dining", date: "4 days ago", automated: true },
-                  ].map((transaction, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-secondary/20 border border-primary/10">
-                      <div className="flex items-center space-x-3">
-                        <Receipt className="h-4 w-4 text-muted-foreground" />
-                        <div>
-                          <p className="font-medium">{transaction.name}</p>
-                          <div className="flex items-center space-x-2">
-                            <p className="text-sm text-muted-foreground">{transaction.category}</p>
-                            {transaction.automated && (
-                              <Badge variant="outline" className="text-xs border-primary/30 text-primary">Auto</Badge>
-                            )}
+                  ].map((transaction, index) => {
+                    const borderColors = ["border-l-primary", "border-l-purple", "border-l-teal", "border-l-pink", "border-l-orange"];
+                    return (
+                      <div key={index} className={`flex items-center justify-between p-4 rounded-lg bg-secondary/20 border-l-4 ${borderColors[index % borderColors.length]} hover:bg-secondary/30 transition-all duration-300 transform hover:scale-102`}>
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-full bg-gradient-primary">
+                            <Receipt className="h-4 w-4 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <p className="font-medium">{transaction.name}</p>
+                            <div className="flex items-center space-x-2">
+                              <p className="text-sm text-muted-foreground">{transaction.category}</p>
+                              {transaction.automated && (
+                                <Badge variant="outline" className="text-xs border-primary/30 text-primary">Auto</Badge>
+                              )}
+                            </div>
                           </div>
                         </div>
+                        <div className="text-right">
+                          <p className={`font-medium ${transaction.amount > 0 ? 'text-success' : 'text-foreground'}`}>
+                            {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                          </p>
+                          <p className="text-sm text-muted-foreground">{transaction.date}</p>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <p className={`font-medium ${transaction.amount > 0 ? 'text-success' : 'text-foreground'}`}>
-                          {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
-                        </p>
-                        <p className="text-sm text-muted-foreground">{transaction.date}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -269,9 +289,16 @@ const Dashboard = () => {
                 const budget = category.value * 1.2; // Mock budget
                 const percentage = (category.value / budget) * 100;
                 const isOverBudget = percentage > 100;
+                const borderClasses = [
+                  "gradient-border-primary hover:glow-primary",
+                  "gradient-border-success hover:glow-rainbow", 
+                  "gradient-border-purple hover:glow-purple",
+                  "animated-border hover:glow-teal",
+                  "gradient-border hover:glow-pink"
+                ];
                 
                 return (
-                  <Card key={index} className="bg-gradient-card border-primary/20 shadow-card">
+                  <Card key={index} className={`${borderClasses[index % borderClasses.length]} bg-gradient-card transition-all duration-500 transform hover:scale-102`}>
                     <CardHeader>
                       <div className="flex justify-between items-center">
                         <CardTitle className="text-lg">{category.name}</CardTitle>

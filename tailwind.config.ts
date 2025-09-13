@@ -47,6 +47,26 @@ export default {
           DEFAULT: "hsl(var(--warning))",
           foreground: "hsl(var(--warning-foreground))",
         },
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+          foreground: "hsl(var(--purple-foreground))",
+        },
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          foreground: "hsl(var(--teal-foreground))",
+        },
+        pink: {
+          DEFAULT: "hsl(var(--pink))",
+          foreground: "hsl(var(--pink-foreground))",
+        },
+        orange: {
+          DEFAULT: "hsl(var(--orange))",
+          foreground: "hsl(var(--orange-foreground))",
+        },
+        indigo: {
+          DEFAULT: "hsl(var(--indigo))",
+          foreground: "hsl(var(--indigo-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -69,11 +89,20 @@ export default {
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-success': 'var(--gradient-success)',
+        'gradient-purple': 'var(--gradient-purple)',
+        'gradient-teal': 'var(--gradient-teal)',
+        'gradient-pink': 'var(--gradient-pink)',
+        'gradient-orange': 'var(--gradient-orange)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-bg': 'var(--gradient-bg)',
+        'gradient-rainbow': 'var(--gradient-rainbow)',
       },
       boxShadow: {
         'glow': 'var(--shadow-glow)',
+        'glow-purple': 'var(--shadow-purple-glow)',
+        'glow-teal': 'var(--shadow-teal-glow)',
+        'glow-pink': 'var(--shadow-pink-glow)',
+        'glow-rainbow': 'var(--shadow-rainbow)',
         'card': 'var(--shadow-card)',
       },
       borderRadius: {

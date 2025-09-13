@@ -38,22 +38,54 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
+    /* Enhanced Color Palette */
+    --purple: 271 81% 56%;
+    --purple-foreground: 210 40% 98%;
+    
+    --teal: 180 83% 47%;
+    --teal-foreground: 240 10% 3.9%;
+    
+    --pink: 330 81% 60%;
+    --pink-foreground: 240 10% 3.9%;
+    
+    --orange: 25 95% 53%;
+    --orange-foreground: 240 10% 3.9%;
+    
+    --indigo: 239 84% 67%;
+    --indigo-foreground: 240 10% 3.9%;
+
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 200 98% 39%;
 
-    /* Financial gradients */
+    /* Beautiful gradients */
     --gradient-primary: linear-gradient(135deg, hsl(200 98% 39%), hsl(220 91% 52%));
     --gradient-success: linear-gradient(135deg, hsl(120 93% 35%), hsl(140 84% 39%));
+    --gradient-purple: linear-gradient(135deg, hsl(271 81% 56%), hsl(300 83% 62%));
+    --gradient-teal: linear-gradient(135deg, hsl(180 83% 47%), hsl(200 83% 52%));
+    --gradient-pink: linear-gradient(135deg, hsl(330 81% 60%), hsl(350 89% 65%));
+    --gradient-orange: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 93% 58%));
     --gradient-card: linear-gradient(135deg, hsl(240 3.7% 15.9%), hsl(240 5% 20%));
     --gradient-bg: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 8% 6%));
+    --gradient-rainbow: linear-gradient(135deg, hsl(200 98% 39%), hsl(271 81% 56%), hsl(330 81% 60%), hsl(25 95% 53%));
 
-    /* Shadows */
+    /* Border gradients */
+    --border-primary: linear-gradient(135deg, hsl(200 98% 39%), hsl(220 91% 52%));
+    --border-success: linear-gradient(135deg, hsl(120 93% 35%), hsl(140 84% 39%));
+    --border-purple: linear-gradient(135deg, hsl(271 81% 56%), hsl(300 83% 62%));
+    --border-rainbow: linear-gradient(135deg, hsl(200 98% 39%), hsl(271 81% 56%), hsl(330 81% 60%), hsl(25 95% 53%));
+
+    /* Enhanced shadows */
     --shadow-glow: 0 0 40px hsl(200 98% 39% / 0.3);
+    --shadow-purple-glow: 0 0 40px hsl(271 81% 56% / 0.4);
+    --shadow-teal-glow: 0 0 40px hsl(180 83% 47% / 0.4);
+    --shadow-pink-glow: 0 0 40px hsl(330 81% 60% / 0.4);
+    --shadow-rainbow: 0 0 50px hsl(200 98% 39% / 0.3), 0 0 30px hsl(271 81% 56% / 0.2);
     --shadow-card: 0 10px 30px -10px hsl(240 10% 3.9% / 0.8);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -110,6 +142,106 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer components {
+  /* Gradient Border Effects */
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: var(--border-rainbow);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+
+  .gradient-border-primary::before {
+    background: var(--border-primary);
+  }
+
+  .gradient-border-success::before {
+    background: var(--border-success);
+  }
+
+  .gradient-border-purple::before {
+    background: var(--border-purple);
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-purple-glow);
+  }
+
+  .glow-teal {
+    box-shadow: var(--shadow-teal-glow);
+  }
+
+  .glow-pink {
+    box-shadow: var(--shadow-pink-glow);
+  }
+
+  .glow-rainbow {
+    box-shadow: var(--shadow-rainbow);
+  }
+
+  /* Animated Gradient Borders */
+  .animated-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from 45deg, hsl(200 98% 39%), hsl(271 81% 56%), hsl(330 81% 60%), hsl(25 95% 53%), hsl(200 98% 39%));
+    border-radius: inherit;
+    animation: spin 3s linear infinite;
+    z-index: -1;
+  }
+
+  .animated-border::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: hsl(var(--card));
+    border-radius: calc(var(--radius) - 2px);
+    z-index: -1;
+  }
+
+  /* Pulse Animation */
+  .pulse-border {
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes pulse-border {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4);
+    }
   }
 }
 
